@@ -1,0 +1,11 @@
+select salary,salary+200 as " with bonus",(salary+200)*0.20 "chanda from a.rohim",
+    (salary+200 +(salary+200)*0.20) "total salary",(salary+200+(salary+200)*0.20-2000) "net total",
+    (salary+200+(salary+200)*0.20-2000)*12 "yearly salary",
+    ((salary+200+(salary+200)*0.20-2000)*12)-0.05 "Yearly payable salary"
+    -- tax
+    from hr.employees;
+
+
+
+
+select*from hr.employees;
