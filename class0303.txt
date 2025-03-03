@@ -1,0 +1,25 @@
+--I
+select first_name, hire_date
+from employees
+where hire_date between '01-JAN-02' and '31-DEC-05';
+
+--II
+select first_name,hire_date
+from employees
+where job_id in('ST_MAN','IT_PROG');
+
+--iii
+select first_name,last_name
+from employees
+where hire_date>'01-JAN-08';
+
+--iv
+
+select *
+from employees
+where employee_id in (150,160);
+
+--V
+select first_name,salary,commission_pct,hire_date
+from employees
+where salary<10000;

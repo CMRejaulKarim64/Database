@@ -1,0 +1,57 @@
+--1
+select last_name, salary
+from employees
+where salary not between 5000 and 12000;
+
+--2
+select last_name,department_id
+from employees
+where department_id =20 or department_id =50
+order by last_name;
+
+--3
+select last_name as "employee", salary as "monthly salary",department_id
+from employees
+where salary between 5000 and 12000
+and department_id in (20,50);
+
+--4
+select last_name, salary,commission_pct
+from employees
+where commission_pct is not null
+order by salary desc,commission_pct desc;
+
+--5
+select last_name, salary,commission_pct
+from employees
+where  commission_pct = 0.20;
+
+
+--6
+select employee_id,last_name,salary,
+salary+(salary*0.155) as "New Salary"
+from employees;
+
+
+select*from employees;
+
+&&&
+
+
+select ROUND(15.193,1),ROUND(425.193,-2),round(45.86678,0)
+from dual;
+
+select last_name,hire_date
+from employees
+where hire_date <'01-feb-08';
+
+
+select sysdate
+from dual;
+
+select employee_id , hire_date,
+months_between(sysdate,hire_date)tenure,add_months(hire_date,6)review,
+next_day(hire_date,'FRIDAY'),last_day(hire_date)
+from employees where months_between(sysdate,hire_date)>150;
+
+&&&
