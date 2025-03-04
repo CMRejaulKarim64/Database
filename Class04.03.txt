@@ -1,0 +1,25 @@
+
+select last_name,salary,department_id, department_name, job_id,max_salary, location_id, city
+from employees 
+natural join departments 
+natural join jobs 
+NATURAL JOIN locations;
+
+select last_name,job_id,job_title
+from jobs natural join employees
+where job_title= 'President';
+
+select e.last_name,e.salary,e.department_id, d.department_name, e.job_id,j.max_salary, l.location_id, l.city
+from employees e
+join departments d on d.department_id = e.department_id
+join jobs j on e.job_id =j.job_id
+join locations l on l.location_id = d.location_id;
+
+
+select * FROM employees;
+select* from locations;
+SELECT * FROM job_history;
+select* from countries;
+select * from jobs;
+select * from regions;
+select *from departments;
