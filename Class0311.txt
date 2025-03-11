@@ -1,0 +1,75 @@
+select last_name,job_id, salary
+from employees
+where job_id=
+    (select job_id
+    from employees
+    where last_name = 'Abel')
+and salary >
+    (select salary
+    from employees
+    where last_name = 'Abel');
+    
+    select job_id,first_name, last_name , salary
+from employees
+where last_name like 'Taylor';
+
+ select  avg(salary)
+from employees;
+
+select employee_id, last_name, salary
+from employees
+where salary> 
+( select avg(salary)
+from employees);
+
+
+select employee_id, last_name,department_id
+from employees
+where department_id in
+        ( select department_id
+    from employees
+        where last_name LIKE '%u%'
+        );  
+
+select last_name
+from employees
+where last_name LIKE '%U%';
+
+
+select last_name,department_id, job_id
+from employees
+where department_id =(
+
+);
+
+
+--select last_name,department_id, job_id
+--from employees
+--where d.location_id = (
+--select d.location_id
+--from employees e 
+--join departments d on d.department_id = e.department_id
+--where location_id =1700
+--);
+--##
+select last_name,department_id, job_id
+from employees
+where department_id in(
+select department_id
+from departments
+where location_id =1700
+)order by 2;
+
+
+select last_name,salary,manager_id, employee_id
+from employees
+where manager_id in (
+select employee_id from employees
+where last_name = 'King'
+);
+
+
+select*from employees;
+
+ 
+    
