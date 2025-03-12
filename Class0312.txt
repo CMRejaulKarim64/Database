@@ -1,0 +1,92 @@
+--1
+select EMPLOYEE_ID, DEPARTMENT_ID,SALARY
+ from hr.employees
+ where (salary,DEPARTMENT_ID) in (
+    select min(salary),DEPARTMENT_ID
+    from hr.employees
+    group by DEPARTMENT_ID)
+    order by 2; 
+
+--2
+select last_name
+from hr.EMPLOYEES 
+where EMPLOYEE_ID not IN(
+select MANAGER_ID
+from hr.EMPLOYEES
+where manager_id is not null);
+
+ --3
+--   SELECT * FROM hr.DEPARTMENTS WHERE DEPARTMENT_ID IN
+--  ( SELECT DEPARTMENT_ID FROM hr.EMPLOYEES
+--  GROUP BY DEPARTMENT_ID
+--  HAVING MAX(SALARY)>10000);
+
+select  department_id, salary
+from hr.employees
+where salary in (
+    select salary
+    from hr.employees
+    group by salary
+    having salary > 10000 );
+
+--4
+--SELECT * FROM hr.DEPARTMENTS WHERE MANAGER_ID IN
+ --(SELECT EMPLOYEE_ID FROM hr.EMPLOYEES WHERE FIRST_NAME='SMITH');
+
+select * 
+from hr.EMPLOYEES
+where manager_id in 
+(select manager_id
+from hr.employees
+where first_name = 'Smith');
+
+--5
+select * 
+from hr.EMPLOYEES 
+where employee_id not in 
+(select employee_id from hr.job_history);
+
+--6*63
+select last_name
+from hr.employees
+where employee_id in (
+select manager_id 
+from hr.employees
+group by MANAGER_ID
+having count(*)<5
+);
+
+
+select * from hr.employees;
+select * from hr.DEPARTMENTS;
+
+--7*65
+select *
+from hr.DEPARTMENTS
+where department_id in (
+    select department_id 
+    from hr.employees
+    where hire_date <'01-JAN-2023'
+    );
+
+--sir
+     SELECT  * FROM HR.DEPARTMENTS
+ WHERE DEPARTMENT_ID NOT IN
+ ( SELECT DEPARTMENT_ID FROM hr.EMPLOYEES WHERE
+ FLOOR((SYSDATE-HIRE_DATE)/365) < 2 );
+
+--8*67
+select last_name, JOB_ID
+from hr.employees
+where employee_id in (
+    select employee_id
+    from hr.job_history
+    where job_id = 'IT_PROG');
+
+--sir
+     SELECT * FROM hr.JOBS
+ WHERE JOB_ID IN
+ (SELECT JOB_ID FROM hr.EMPLOYEES WHERE EMPLOYEE_ID IN
+        (SELECT EMPLOYEE_ID FROM hr.JOB_HISTORY WHERE JOB_ID='IT_PROG'));
+
+
