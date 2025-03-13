@@ -1,0 +1,43 @@
+SELECT
+    * FROM emp1287759;
+    
+    update emp1287759 set address = 'demra'
+    where eid = 2;
+     update emp1287759 set address = 'savar', dept_id = 2, dept_name = 'DDD'
+    where eid = 3;
+    commit;
+    
+    update emp1287759 set address = 'mohdPur', dept_id = 7, dept_name = 'GD'
+    where eid = 4;
+    
+    insert into emp1287759 (shift)
+    values ('afternoon');
+    
+     update emp1287759 set shift = 'afternoon'
+    where eid = 1;
+    commit; --for parmanently
+    rollback; --delete all data after last commit.
+    TRUNCATE; --delete entire table data.
+    drop; --for column delete.
+    
+    ALTER TABLE emp1287759
+ DROP COLUMN shift; 
+ 
+ select * from employees;
+ 
+ --68
+ select * 
+ from employees
+ where employee_id in(
+ select department_id,max(salary)
+ from employees
+ group by department_id
+ );
+ 
+ 
+ --=29
+ select job_id,max_salary+min_salary/2 as "average salary"
+ from jobs
+ where max_salary+min_salary/2 >10000; 
+ 
+    
