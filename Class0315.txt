@@ -1,0 +1,21 @@
+select * from retired_employees;
+
+insert into retired_employees( employee_id, last_name, email, retired_date, job_id)
+values (1287759, 'Reja', 'cmrejaulkarim', to_date('15/MAR/25','DD/MON/RR'), 'ST-JEE');
+COMMIT;
+describe retired_employees;
+
+insert into retired_employees( employee_id, last_name, email, retired_date, job_id)
+values (1287528, 'aRahim', 'cmrejaulkarim', to_date('15/MAR/25','DD/MON/RR'), 'ST-NT');
+insert into retired_employees values (319, 'abdur','rahim', 'gopalJ',to_date('13/MAR/15','DD/MON/RR'),'ST-CCSL',12500,007, 64 );
+rollback;
+
+select * from retired_employees;
+select * from employees;
+
+update retired_employees set email='arahim'
+where last_name='aRahim';
+
+
+
+
