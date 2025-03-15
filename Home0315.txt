@@ -1,0 +1,45 @@
+--2
+SELECT FIRST_NAME, HIRE_DATE 
+FROM hr.EMPLOYEES
+WHERE HIRE_DATE 
+BETWEEN to_date('01/JAN/10', 'dd/mon/rr') AND to_date('01/JAN/20', 'dd/mon/rr') 
+ORDER BY HIRE_DATE;
+--3
+select first_name, HIRE_DATE 
+from hr.EMPLOYEES
+where job_id in('IT_PROG', 'SA_MAN');
+--4
+SELECT * 
+from HR.EMPLOYEES 
+WHERE hire_date > '01-jan-2008'
+order by hire_date;
+--5
+select * 
+from hr.EMPLOYEES
+where employee_id in (150,160); 
+--6
+select first_name,salary,commission_pct,hire_date
+from hr.employees 
+where salary >10000;
+--7
+select job_title,max_salary-min_salary 
+from hr.jobs
+where max_salary between 10000 and 20000;
+--8
+SELECT FIRST_NAME, SALARY, ROUND(SALARY, -3) 
+FROM hr.EMPLOYEES;
+--9
+select * 
+from hr.JOBS
+order by job_title desc;
+--10
+select *
+from hr.EMPLOYEES
+where first_name like 'S%'
+or last_name like 'S%';
+--11
+select * 
+from hr.employees 
+where  to_char(hire_date, 'MON')= 'MAY';
+
+
