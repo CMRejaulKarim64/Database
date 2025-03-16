@@ -1,0 +1,93 @@
+--1
+CREATE SEQUENCE EMP_eid_seq
+START WITH 5100
+increment by 100
+maxvalue 999999
+nocache
+nocycle;
+
+--2
+CREATE SEQUENCE EMP_eidd_seq
+START WITH 5000
+increment by 100
+maxvalue 999999
+nocache
+nocycle;
+
+select EMP_eidd_seq.currval
+from dual;
+--1
+insert into emp1287759 values (EMP_eid_seq.nextval, 'sadiar',20000, to_date('16-MAR-25', 'dd-mon-rr'),'lalbagh',5,'jee');
+--2
+insert into emp1287759 values (EMP_eidd_seq.nextval, 'sadiar',20000, to_date('16-MAR-25', 'dd-mon-rr'),'lalbagh',5,'jee');
+insert into emp1287759 values (EMP_eidd_seq.nextval, 'eiasin',20000, to_date('16-MAR-25', 'dd-mon-rr'),'mgnj',5,'jee');
+commit;
+select* from emp1287759;
+rollback;
+
+
+create view salvu50
+as select employee_id id_number , last_name name,
+salary*12 ann_salary
+from employees
+where department_id = 50;
+
+select * from salvu50;
+
+select * from emp_details_view;
+
+
+--1
+create table emp7759(
+e_id number(7) constraint emp_idd_pk primary key,
+ename varchar2(30) not null,
+sallary number(8) not null,
+hire_date date,
+address varchar2(20)
+);
+
+--2
+alter table emp7759 add(
+department_id number(5),
+dept_name varchar2(10));
+
+select * from employees;
+
+--3
+insert into emp7759 values (10, 'reja', 10000, null, 'lbg', 64, 'jee' );
+insert into emp7759 values (20, 'reja', 10000, null, 'lbg', 64, 'jee' );
+insert into emp7759 values (30, 'reja', 10000, null, 'lbg', 64, 'jee' );
+insert into emp7759 values (40, 'reja', 10000, null, 'lbg', 64, 'jee' );
+insert into emp7759 values (50, 'reja', 10000, null, 'lbg', 64, 'jee' );
+insert into emp7759 values (60, 'reja', 10000, null, 'lbg', 64, 'jee' );
+insert into emp7759 values (70, 'reja', 10000, null, 'lbg', 64, 'jee' );
+
+--4
+create view empvur
+as select first_name "ename", department_name, salary
+from employees natural join departments
+where department_id =80;
+
+select * from empvur;
+cache
+--5
+create sequence emp_re
+start with 5010
+increment by 10
+maxvalue 999999
+nocache
+nocycle;
+
+
+--6
+insert into emp7759(e_id, ename, sallary, hire_date, address, department_id)
+values(
+select employee_id,salary, hire_date,address,department_id
+from employees
+where department_id in (
+select department_id 
+from employees
+where salary >1000 
+));
+
+select * from emp7759;
