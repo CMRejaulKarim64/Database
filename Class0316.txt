@@ -69,7 +69,7 @@ from employees natural join departments
 where department_id =80;
 
 select * from empvur;
-cache
+
 --5
 create sequence emp_re
 start with 5010
