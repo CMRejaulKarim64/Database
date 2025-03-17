@@ -1,0 +1,90 @@
+create table sadiar (
+id number(7),
+name varchar2(30) not null,
+email varchar2(30));
+
+alter table sadiar 
+add constraint sad_id_spk primary key (id);
+
+describe sadiar;
+
+alter table sadiar add (id number);
+
+--***
+select constraint_name
+from user_constraints;
+
+alter table sadiar 
+modify name varchar2(50);
+
+insert into sadiar values(05, 'sadi', 'sad@gmail.com');
+
+alter table sadiar
+drop column id;
+
+select * from sadiar;
+
+
+
+
+
+create table sadiar (
+id number(7),
+name varchar2(30) not null,
+email varchar2(30));
+
+alter table sadiar 
+add constraint sad_id_spk primary key (id);
+
+describe sadiar;
+
+alter table sadiar add (id number);
+
+--***
+select constraint_name
+from user_constraints;
+
+alter table sadiar 
+modify name varchar2(50);
+
+insert into sadiar values(05, 'sadi', 'sad@gmail.com');
+
+alter table sadiar
+drop column id;
+
+select * from sadiar;
+
+
+
+
+
+create table sadiar (
+id number(7),
+name varchar2(30) not null,
+email varchar2(30));
+
+alter table sadiar 
+add constraint sad_id_spk primary key (id);
+
+describe sadiar;
+
+alter table sadiar add (id number);
+
+--***
+select constraint_name
+from user_constraints;
+
+alter table sadiar 
+modify name varchar2(50);
+
+insert into sadiar values(05, 'sadi', 'sad@gmail.com');
+
+alter table sadiar
+drop column id;
+
+select * from sadiar;
+
+
+
+
+
