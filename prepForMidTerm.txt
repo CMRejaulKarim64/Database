@@ -1,0 +1,54 @@
+--answer : 1
+create table emp1234(
+eid number(7) constraint emp_id_pk primary key,
+ename varchar2(30),
+salary number(6,2),
+hire_date date ,
+address varchar2(30)
+);
+--drop table emp1234;
+--drop constraint emp_id_pk;
+
+--ans: 2
+alter table emp1234 add(
+department_id number(5),
+dept_name varchar2(20));
+
+--ans: 3
+--select * from emp1234;
+
+insert into emp1234 values(12, 'sadi', 2000.00, 
+'19-mar-25','lalbagh', 80, 'jee');
+insert into emp1234 values(13, 'atik', 2200.00, 
+'18-mar-25','demra', 80, 'jee');
+insert into emp1234 values(14, 'rakib', 2500.00, 
+'17-mar-25','m.pur', 85, 'jee');
+-- truncate table emp1234;
+--ans: 4
+
+create view emp34
+as select ename, dept_name, salary
+from emp1234
+where department_id = 80;
+
+--SELECT * FROM emp34;
+
+--ans: 5
+
+create sequence emp19_seq
+start with 100
+increment by 5
+maxvalue 99999
+nocache
+nocycle;
+
+--drop sequence emp19_seq;
+
+-- ans: 6
+
+insert into emp1234 (eid, ename, salary, hire_date, address,department_id, dept_name)
+select employee_id,last_name, salary, hire_date, 
+street_address,department_id, department_name
+from employees natural join departments natural join locations
+where department_id =100;
+
