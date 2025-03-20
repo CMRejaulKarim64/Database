@@ -1,0 +1,21 @@
+
+--2
+select DEPARTMENT_ID, round(avg(salary)) "average salary"
+from hr.EMPLOYEES
+group by DEPARTMENT_ID
+having max(salary)>12000;
+
+--3
+select first_name name
+from hr.EMPLOYEES
+where first_name like 'S%';
+
+--4
+select avg(salary)
+from hr.EMPLOYEES
+where job_id like '%SA%';
+
+--5
+select first_name||' '||last_name name
+from hr.EMPLOYEES
+order by hire_date asc;
